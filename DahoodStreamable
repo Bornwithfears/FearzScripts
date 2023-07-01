@@ -1,0 +1,24 @@
+game.StarterGui:SetCore("SendNotification",{Title="Fear Lock",Text="Fears Streamable Lock loading..",Duration=3})
+local ab=loadstring(game:HttpGet("https://pastebin.com/raw/wy4vTkmn"))()ab.TeamCheck(false)
+local bb=game:GetService("Workspace")local cb=game:GetService("Players")
+local db=game:GetService("RunService")local _c=game:GetService("UserInputService")
+local ac=cb.LocalPlayer;local bc=ac:GetMouse()local cc=bb.CurrentCamera
+local dc={SilentAim=true,AimLock=false,Prediction=0.138,AimLockKeybind=Enum.KeyCode.P}getgenv().DaHoodSettings=dc
+function ab.Check()if
+not(
+ab.Enabled==true and ab.Selected~=ac and ab.SelectedPart~=nil)then return false end
+local ad=ab.Character(ab.Selected)
+local bd=ad:WaitForChild("BodyEffects")["K.O"].Value
+local cd=ad:FindFirstChild("GRABBING_CONSTRAINT")~=nil;if(bd or cd)then return false end;return true end;local _d
+_d=hookmetamethod(game,"__index",function(ad,bd)
+if(
+ad:IsA("Mouse")and(bd=="Hit"or bd=="Target")and ab.Check())then local cd=ab.SelectedPart;if(dc.SilentAim and(
+bd=="Hit"or bd=="Target"))then local dd=cd.CFrame+
+(cd.Velocity*dc.Prediction)
+return(bd=="Hit"and dd or cd)end end;return _d(ad,bd)end)
+db:BindToRenderStep("AimLock",0,function()
+if(dc.AimLock and ab.Check()and
+_c:IsKeyDown(dc.AimLockKeybind))then local ad=ab.SelectedPart;local bd=ad.CFrame+
+(ad.Velocity*dc.Prediction)
+cc.CFrame=CFrame.lookAt(cc.CFrame.Position,bd.Position)end end)
+game.StarterGui:SetCore("SendNotification",{Title="Fear Lock",Text="Fears Streamable Lock loaded!",Duration=3})
