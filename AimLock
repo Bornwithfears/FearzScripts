@@ -81,13 +81,13 @@ RunService:BindToRenderStep("AimLock", 0, function()
 		CurrentCamera.CFrame = CFrame.lookAt(CurrentCamera.CFrame.Position, Hit.Position)
 	end
 end)
-game.StarterGui:SetCore("SendNotification",{
-	Title = "AimLock";
-	Text = "Press 'e' to aimlock\nBy - Fear";
-	Duration = 3;
-})
 getgenv().AimPart = "Head"
 getgenv().AimlockKey = "q"
+game.StarterGui:SetCore("SendNotification",{
+	Title = "AimLock";
+	Text = "Press '"..tostring(AimlockKey).."' to aimlock\nBy - Fear";
+	Duration = 3;
+})
 getgenv().AimRadius = 10
 getgenv().ThirdPerson = true
 getgenv().FirstPerson = true
