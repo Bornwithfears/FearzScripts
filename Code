@@ -1,0 +1,16 @@
+local CodeStorage = game:GetService("ReplicatedStorage"):WaitForChild("MainEvent")
+Codes = {
+	"DHSUMMER",
+	"MELONBEAR",
+	"DAUP",
+}
+
+for _,Code in pairs(Codes) do
+	game.StarterGui:SetCore("SendNotification",{
+    	Title = "Ez cash - By Fear";
+    	Text = "Getting cash... Max wait: 5 seconds";
+    	Duration = 4;
+	})
+	wait(5)
+	CodeStorage:FireServer("EnterPromoCode",Code)
+end
